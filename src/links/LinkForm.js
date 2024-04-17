@@ -54,7 +54,6 @@ const LinkForm = () => {
             return;
         }
 
-        // Create a new FormData object, and append the file and link data
         const formData = new FormData();
         formData.append('file', file);
 
@@ -73,10 +72,8 @@ const LinkForm = () => {
             ? axios.put(`http://localhost:8080/api/links/${id}`, formData, config)
             : axios.post('http://localhost:8080/api/links', formData, config);
 
-        // Provide feedback on upload progress
         setMsg("Uploading...");
 
-        // Handle the request promise
         axiosRequest.then(response => {
             setSent(true);
             setSuccess(true);
