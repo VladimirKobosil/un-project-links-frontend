@@ -14,7 +14,7 @@ const LinkPreviewCard = ({link}) => {
 
     return (
         <Link to={url} target={openInNewWindow ? "_blank" : "_self"}>
-            <Card style={{width: '18rem'}}>
+            <Card className="m-5" style={{width: '18rem'}}>
                 <Card.Img variant="top" src={imageBase64}/>
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
