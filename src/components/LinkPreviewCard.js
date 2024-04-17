@@ -1,15 +1,14 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
 
 const LinkPreviewCard = ({link}) => {
     const {imageData, name, description, url, openInNewWindow = false} = link;
 
-    let imageBase64 = "data:image/jpeg;base64," + imageData; // Předpokládáme, že imageData je váš base64 řetězec.
+    let imageBase64 = "data:image/jpeg;base64," + imageData;
 
-    const stripHtmlTags = (str) => {
-        return str ? str.replace(/<[^>]*>/g, '') : '';
-    }
+
 
     return (
         <Link to={url} target={openInNewWindow ? "_blank" : "_self"}>
@@ -17,7 +16,7 @@ const LinkPreviewCard = ({link}) => {
                 <Card.Img variant="top" src={imageBase64}/>
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
-                    <Card.Text>{stripHtmlTags(description)}</Card.Text>
+                    <Card.Text>{ReactHtmlParser(description)}</Card.Text>
                 </Card.Body>
             </Card>
         </Link>
