@@ -81,7 +81,7 @@ const LinkForm = () => {
                 const updatedHistory = [...historyData, {...response.data, date: new Date().toDateString()}];
                 setHistoryData(updatedHistory);
                 localStorage.setItem(`linkHistory/${id}`, JSON.stringify(updatedHistory));
-                localStorage.setItem('linkUpdated', Date.now()); // AsyncStorage - set the current date when a link is updated.
+                localStorage.setItem('linkUpdated', Date.now());
             }
             setMsg("    Obrázek nahrán uspěšně");
         }).catch(error => {
